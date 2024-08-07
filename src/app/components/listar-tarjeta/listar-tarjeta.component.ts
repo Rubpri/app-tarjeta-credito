@@ -2,6 +2,8 @@ import { Component } from '@angular/core';
 import { TarjetaService } from '../../services/tarjeta.service';
 import { TarjetaCredito } from '../../models/Tarjeta-Credito';
 import { CommonModule } from '@angular/common';
+import { ToastrService } from 'ngx-toastr';
+
 
 @Component({
   selector: 'app-listar-tarjeta',
@@ -14,8 +16,10 @@ export class ListarTarjetaComponent {
 
   listaTarjetas: TarjetaCredito[] = [];
 
-  constructor(private _tarjetaService: TarjetaService) {
-
+  constructor(
+    private _tarjetaService: TarjetaService,
+    private toastr: ToastrService
+  ) {
   }
 
   ngOnInit(): void {
@@ -36,6 +40,20 @@ export class ListarTarjetaComponent {
         // console.log(this.listaTarjetas)
       });
     })
+  }
+
+  deleteTarjeta(id: any) {
+    this._tarjetaService.deleteTarjeta(id).then(() => {
+      this.toastr.error('Tarjeta eliminada con éxito', 'Tarjeta Eliminada');
+    }, error => {
+      this.toastr.error('Error al borrar tarjeta', 'Error');
+      console.log(error);
+    })
+  }
+
+  updateTarjeta(tarjeta: TarjetaCredito) {
+    this._tarjetaService.addTarjetaEdit(tarjeta);
+
   }
 
 }

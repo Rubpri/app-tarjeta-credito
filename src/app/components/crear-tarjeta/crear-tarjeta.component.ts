@@ -16,6 +16,8 @@ export class CrearTarjetaComponent {
 
   form: FormGroup;
   loading = false;
+  titulo = 'Crear Tarjeta';
+  id: string | undefined;
 
   constructor(
     private fb: FormBuilder,
@@ -30,7 +32,53 @@ export class CrearTarjetaComponent {
     });
   }
 
+
+  ngOnInit(): void {
+    this._tarjetaService.getTarjetaEdit().subscribe(data => {
+      // console.log(data);
+      this.id = data.id;
+      this.titulo = 'Editar Tarjeta';
+      this.form.patchValue({
+        titular: data.titular,
+        numeroTarjeta: data.numeroTarjeta,
+        fechaExpiracion: data.fechaExpiracion,
+        cvv: data.cvv
+      })
+    })
+  }
+
   crearTarjeta() {
+
+    if (this.id === undefined) {
+      // Creamos una nueva tarjeta
+      this.agregarTarjeta();
+    } else {
+      // Editamos una nueva tarjeta
+      this.editarTarjeta(this.id)
+    }
+  }
+
+  editarTarjeta(id: string) {
+    const tarjeta: any = {
+      titular: this.form.value.titular,
+      numeroTarjeta: this.form.value.numeroTarjeta,
+      fechaExpiracion: this.form.value.fechaExpiracion,
+      cvv: this.form.value.cvv,
+      fechaActualizacion: new Date(),
+    }
+    this.loading = true;
+    this._tarjetaService.updateTarjeta(id, tarjeta).then(() => {
+      this.loading = false;
+      this.titulo = 'Agregar Tarjeta';
+      this.form.reset();
+      this.id = undefined;
+      this.toastr.info('Tarjeta actualizada con éxito', 'Tarjeta Actualizada');
+    }, error => {
+      console.log(error);
+    })
+  }
+
+  agregarTarjeta() {
     const tarjeta: TarjetaCredito = {
       titular: this.form.value.titular,
       numeroTarjeta: this.form.value.numeroTarjeta,
