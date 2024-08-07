@@ -10,6 +10,9 @@ environment
 
 import { FIREBASE_OPTIONS } from '@angular/fire/compat';
 
+import { provideAnimations } from '@angular/platform-browser/animations';
+import { provideToastr } from 'ngx-toastr';
+
 export const appConfig: ApplicationConfig = {
   providers: [
     provideZoneChangeDetection({ eventCoalescing: true }),
@@ -17,6 +20,8 @@ export const appConfig: ApplicationConfig = {
     provideClientHydration(),
     provideFirebaseApp(() => initializeApp(environment.firebase)),
     provideFirestore(() => getFirestore()),
-    { provide: FIREBASE_OPTIONS, useValue: environment.firebase }
+    { provide: FIREBASE_OPTIONS, useValue: environment.firebase },
+    provideAnimations(),
+    provideToastr(),
   ]
 };
