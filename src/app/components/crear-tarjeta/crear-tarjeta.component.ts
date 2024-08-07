@@ -32,7 +32,6 @@ export class CrearTarjetaComponent {
     });
   }
 
-
   ngOnInit(): void {
     this._tarjetaService.getTarjetaEdit().subscribe(data => {
       // console.log(data);
@@ -47,8 +46,13 @@ export class CrearTarjetaComponent {
     })
   }
 
-  crearTarjeta() {
+  resetearFormulario() {
+    this.form.reset();
+    this.titulo = 'Agregar Tarjeta';
+    this.id = undefined;
+  }
 
+  crearTarjeta() {
     if (this.id === undefined) {
       // Creamos una nueva tarjeta
       this.agregarTarjeta();

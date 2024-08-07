@@ -48,6 +48,12 @@
                     Aceptar
                 </button>
             </div>
+
         </form>
+        <div *ngIf="id" class="d-grid gap-2">
+            <button (click)="resetearFormulario()" class="btn btn-info mt-2">
+                Volver a Agregar Tarjeta
+            </button>
+        </div>
     </div>
 </div>

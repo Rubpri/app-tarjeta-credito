@@ -5,15 +5,15 @@
             <tbody>
                 <tr>
                     <td><b>Titular</b></td>
-                    <td><b>Número de Tarjeta</b></td>
-                    <td><b>Fecha Expiración</b></td>
-                    <td><b>Acciones</b></td>
+                    <td class="text-center"><b>Número de Tarjeta</b></td>
+                    <td class="text-center"><b>Fecha Expiración</b></td>
+                    <td class="text-center"><b>Acciones</b></td>
                 </tr>
                 <tr *ngFor="let tarjeta of listaTarjetas">
                     <td>{{ tarjeta.titular }}</td>
-                    <td>{{ tarjeta.numeroTarjeta }}</td>
-                    <td>{{ tarjeta.fechaExpiracion }}</td>
-                    <td>
+                    <td class="text-center">{{ tarjeta.numeroTarjeta }}</td>
+                    <td class="text-center">{{ tarjeta.fechaExpiracion }}</td>
+                    <td class="text-center">
                         <i (click)="updateTarjeta(tarjeta)" class="fa-regular fa-pen-to-square text-primary far"></i>
                         <i (click)="deleteTarjeta(tarjeta.id)" class="fa-solid fa-trash-can text-danger far"></i>
                     </td>
