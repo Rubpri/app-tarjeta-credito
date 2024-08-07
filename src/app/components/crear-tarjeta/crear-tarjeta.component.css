@@ -5,3 +5,8 @@
 .red-icon {
     background-color: tomato;
 }
+
+.spinner-border {
+    height: 1.5rem;
+    width: 1.5rem;
+}
