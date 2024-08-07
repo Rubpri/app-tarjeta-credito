@@ -1,9 +1,18 @@
 import { Injectable } from '@angular/core';
+import { AngularFirestore } from '@angular/fire/compat/firestore';
+import { TarjetaCredito } from '../models/Tarjeta-Credito';
+
 
 @Injectable({
   providedIn: 'root'
 })
 export class TarjetaService {
 
-  constructor() { }
+  constructor(private firebase: AngularFirestore) {
+  }
+
+  guardarTarjeta(tarjeta: TarjetaCredito): Promise<any> {
+    return this.firebase.collection('tarjetas').add(tarjeta);
+  }
 }
+

@@ -29,13 +29,18 @@ export class CrearTarjetaComponent {
     const tarjeta: TarjetaCredito = {
       titular: this.form.value.titular,
       numeroTarjeta: this.form.value.numeroTarjeta,
-      fechaExpiracion : this.form.value.fechaExpiracion,
+      fechaExpiracion: this.form.value.fechaExpiracion,
       cvv: this.form.value.cvv,
       fechaCreacion: new Date(),
       fechaActualizacion: new Date(),
     }
 
-    console.log(tarjeta);
+    this._tarjetaService.guardarTarjeta(tarjeta).then(() => {
+      console.log('Tarjeta Registrada');
+      this.form.reset();
+    }, error => {
+      console.log(error)
+    });
   }
 
 }
