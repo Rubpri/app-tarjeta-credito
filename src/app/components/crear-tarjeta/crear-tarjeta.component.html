@@ -44,9 +44,12 @@
                 </div>
             </div>
             <div class="d-grid gap-2">
-                <button [disabled]="form.invalid" class="btn btn-success" type="submit">
+                <button [disabled]="form.invalid || numeroTarjetas.numeroTarjetas >= 10" class="btn btn-success"
+                    type="submit">
                     Aceptar
                 </button>
+                <span class="text-danger" *ngIf="numeroTarjetas.numeroTarjetas >= 10"><b>Número máximo de Tarjetas
+                        alcanzado.</b></span>
             </div>
 
         </form>

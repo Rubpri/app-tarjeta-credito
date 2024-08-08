@@ -3,6 +3,7 @@ import { TarjetaService } from '../../services/tarjeta.service';
 import { TarjetaCredito } from '../../models/Tarjeta-Credito';
 import { CommonModule } from '@angular/common';
 import { ToastrService } from 'ngx-toastr';
+import { SharedService } from '../../services/shared.service';
 
 
 @Component({
@@ -18,23 +19,33 @@ export class ListarTarjetaComponent {
 
   constructor(
     private _tarjetaService: TarjetaService,
-    private toastr: ToastrService
+    private toastr: ToastrService,
+    public numeroTarjetas: SharedService
   ) {
+  }
+
+
+  sumarTarjeta() {
+    this.numeroTarjetas.numeroTarjetas = this.numeroTarjetas.numeroTarjetas + 1;
   }
 
   ngOnInit(): void {
     this.getTarjetas();
+    // console.log(this.numeroTarjetas.numeroTarjetas);
   }
 
   getTarjetas() {
     this._tarjetaService.getTarjetas().subscribe(doc => {
       // console.log(doc);
       this.listaTarjetas = [];
+      this.numeroTarjetas.numeroTarjetas = 0;
       doc.forEach((element: any) => {
         this.listaTarjetas.push({
           id: element.payload.doc.id,
           ...element.payload.doc.data()
         })
+        this.sumarTarjeta();
+        // this.numeroTarjetas = this.numeroTarjetas + 1;
         // console.log(element.payload.doc.id);
         // console.log(element.payload.doc.data());
         // console.log(this.listaTarjetas)

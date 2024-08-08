@@ -4,6 +4,7 @@ import { TarjetaCredito } from '../../models/Tarjeta-Credito';
 import { TarjetaService } from '../../services/tarjeta.service';
 import { ToastrService } from 'ngx-toastr';
 import { CommonModule } from '@angular/common';
+import { SharedService } from '../../services/shared.service';
 
 @Component({
   selector: 'app-crear-tarjeta',
@@ -22,7 +23,8 @@ export class CrearTarjetaComponent {
   constructor(
     private fb: FormBuilder,
     private _tarjetaService: TarjetaService,
-    private toastr: ToastrService
+    private toastr: ToastrService,
+    public numeroTarjetas: SharedService
   ) {
     this.form = this.fb.group({
       titular: ['', Validators.required],
@@ -94,7 +96,7 @@ export class CrearTarjetaComponent {
     this.loading = true;
     this._tarjetaService.guardarTarjeta(tarjeta).then(() => {
       this.loading = false;
-      console.log('Tarjeta Registrada');
+      // console.log('Tarjeta Registrada');
       this.toastr.success('¡Tarjeta registrada con éxito!', 'Tarjeta registrada');
       this.form.reset();
     }, error => {
