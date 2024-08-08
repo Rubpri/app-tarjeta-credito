@@ -29,7 +29,7 @@
                             <i class="fa-regular fa-calendar-days"></i>
                         </span>
                         <input type="text" formControlName="fechaExpiracion" class="form-control" placeholder="MM/YY"
-                            maxlength="5">
+                            maxlength="5" pattern="\d{2}/\d{2}">
                     </div>
                 </div>
                 <div class="col-lg-5">
@@ -39,7 +39,7 @@
                             <i class="fa-solid fa-key"></i>
                         </span>
                         <input type="password" formControlName="cvv" class="form-control" placeholder="CVV"
-                            maxlength="3">
+                            maxlength="3" pattern="[0-9]{3}">
                     </div>
                 </div>
             </div>
