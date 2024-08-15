@@ -29,9 +29,38 @@ export class CrearTarjetaComponent {
     this.form = this.fb.group({
       titular: ['', Validators.required],
       numeroTarjeta: ['', [Validators.required, Validators.minLength(16), Validators.maxLength(16), Validators.pattern("^[0-9]*$")]],
-      fechaExpiracion: ['', [Validators.required, Validators.minLength(5), Validators.maxLength(5)]],
+      fechaExpiracion: ['', [Validators.required, Validators.minLength(5), Validators.maxLength(5),Validators.pattern("(0[1-9]|1[0-2])/([0-9]{2})"), this.validarFechaExpiracion()]],
       cvv: ['', [Validators.required, Validators.minLength(3), Validators.maxLength(3)]],
     });
+  }
+
+  validarFechaExpiracion() {
+    return (control: any): { [key: string]: boolean } | null => {
+      if (!control.value) {
+        return null;
+      }
+
+      const [month, year] = control.value.split('/');
+      const monthNum = parseInt(month, 10);
+      const yearNum = parseInt(year, 10);
+
+      const currentYear = new Date().getFullYear() % 100;
+      const currentMonth = new Date().getMonth() + 1;
+
+      if (isNaN(monthNum) || isNaN(yearNum)) {
+        return { invalidDate: true }
+      }
+
+      if (yearNum < currentYear) {
+        return { invalidYear: true }; 
+      }
+  
+      if (yearNum === currentYear && monthNum < currentMonth) {
+        return { invalidMonth: true };
+      }
+  
+      return null;
+   }
   }
 
   ngOnInit(): void {
