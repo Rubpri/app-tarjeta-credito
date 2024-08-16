@@ -4,9 +4,9 @@ Esta aplicación web permite gestionar tarjetas de crédito a través de un form
 
 ## Stack Tecnológico
 
-- HTML5, CSS3, Bootstrap, JavaScript, TypeScript
-- Angular (18.0.5)
-- Firebase (Firestore)
+· HTML5, CSS3, Bootstrap, JavaScript, TypeScript
+· Angular (18.0.5)
+· Firebase (Firestore)
 
 *Se ha usado ngx-env para las variables de entorno (.env)*
 
@@ -25,6 +25,7 @@ Link al Live: <a href="https://app-tarjeta-credito-4p8m5sqjr-rubpris-projects.ve
 <a href="https://github.com/Rubpri" target="_blank">
   <img src="https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white" alt="GitHub" />
 </a>
+
 <a href="https://www.linkedin.com/in/ruben-prieto-serrano/" target="_blank">
   <img src="https://img.shields.io/badge/LinkedIn-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white" alt="LinkedIn" />
 </a>
