@@ -6,7 +6,7 @@ Esta aplicación web permite gestionar tarjetas de crédito a través de un form
 
 + HTML5, CSS3, Bootstrap, JavaScript, TypeScript
 + Angular (18.0.5)
-* Firebase (Firestore)
++ Firebase (Firestore)
 
 *Se ha usado ngx-env para las variables de entorno (.env)*
 
