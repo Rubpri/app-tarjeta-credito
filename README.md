@@ -1,27 +1,27 @@
-# AppTarjetaCredito
+# App Tarjeta de Crédito
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 18.0.5.
+Esta aplicación web permite gestionar tarjetas de crédito a través de un formulario sencillo. Los usuarios pueden añadir nuevas tarjetas a la base de datos, verlas en una lista, y realizar acciones como editar o eliminar las tarjetas existentes.
 
-## Development server
+## Stack Tecnológico
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+- HTML5, CSS3, Bootstrap, JavaScript, TypeScript
+- Angular (18.0.5)
+- Firebase (Firestore)
 
-## Code scaffolding
+*Se ha usado ngx-env para las variables de entorno (.env)*
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+## Enlaces
 
-## Build
+- [Link al Live: https://app-tarjeta-credito-4p8m5sqjr-rubpris-projects.vercel.app/](https://app-tarjeta-credito-4p8m5sqjr-rubpris-projects.vercel.app/)
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+## Imágenes de la App
 
-## Running unit tests
+![Img1](./tc1.png)
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+![Img2](./tc2.png)
 
-## Running end-to-end tests
+## Perfiles
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+- [![GitHub](https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white)](https://github.com/Rubpri)
+- [![LinkedIn](https://img.shields.io/badge/LinkedIn-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/ruben-prieto-serrano/)
 
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
