@@ -12,7 +12,7 @@ Esta aplicación web permite gestionar tarjetas de crédito a través de un form
 
 ## Enlaces
 
-Link al Live: <a href="https://app-tarjeta-credito-4p8m5sqjr-rubpris-projects.vercel.app/" target="_blank">https://app-tarjeta-credito-4p8m5sqjr-rubpris-projects.vercel.app/</a>
+Link al Live: <a href="https://app-tarjeta-credito.vercel.app/" target="_blank">https://app-tarjeta-credito.vercel.app/</a>
 
 ## Imágenes de la App
 
